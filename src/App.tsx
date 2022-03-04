@@ -1,41 +1,29 @@
-import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { Route, Routes } from 'react-router-dom'
+import './App.scss'
+import HomePage from './pages/Home/HomePage'
+import SignupPage from './pages/Signup/SignupPage'
+import LoginPage from './pages/Login/LoginPage'
+import CategoriesPage from './pages/Categories/CategoriesPage'
+import RecipesPage from './pages/Recipes/RecipesPage'
 
-interface AppProps {}
+const App = () => {
+	return (
+		<div>
+			<Routes>
+				<Route path={'/'} element={<HomePage />} />
 
-function App({}: AppProps) {
-  // Create the count state.
-  const [count, setCount] = useState(0);
-  // Create the counter (+1 every second).
-  useEffect(() => {
-    const timer = setTimeout(() => setCount(count + 1), 1000);
-    return () => clearTimeout(timer);
-  }, [count, setCount]);
-  // Return the App component.
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <p>
-          Page has been open for <code>{count}</code> seconds.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </p>
-      </header>
-    </div>
-  );
+				<Route path="/signup" element={<SignupPage />} />
+				<Route path="/login" element={<LoginPage />} />
+
+				<Route path="/categories" element={<CategoriesPage />} />
+				{/* <Route path="/categories/:category" element={null} /> */}
+
+				<Route path="/recipes" element={<RecipesPage />} />
+				{/* <Route path="/recipes/:recipe" element={null} /> */}
+			</Routes>
+		</div>
+	)
 }
 
-export default App;
+export default App

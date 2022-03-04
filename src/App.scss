@@ -1,0 +1,48 @@
+$red: hsl(10, 70%, 50%);
+$blue: hsl(200, 70%, 50%);
+$purple: hsl(250, 60%, 50%);
+$font: 'Dank Mono';
+
+html,
+body {
+	width: 100%;
+	height: 100%;
+	background-color: $red;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: $font;
+}
+
+.app-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+}
+
+.title {
+	color: $purple;
+	position: absolute;
+	white-space: nowrap;
+	font-size: 3em;
+	display: flex;
+	align-self: flex-end;
+}
+
+button {
+	position: absolute;
+	top: 0;
+	transform: translateY(100%);
+	padding: 0.5em 1.25em;
+	border: 1px solid $blue;
+	background-color: $blue;
+	color: white;
+	font-size: large;
+	border-radius: 0.25em;
+	font-family: $font;
+}
+
+button:hover {
+	background-color: darken($blue, 10%);
+}
