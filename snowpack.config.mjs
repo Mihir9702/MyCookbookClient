@@ -10,8 +10,10 @@ export default {
 		'@snowpack/plugin-typescript',
 		'@snowpack/plugin-sass',
 	],
+	alias: {
+		src: './src',
+		public: './public',
+	},
 	routes: [{ match: 'routes', src: '.*', dest: '/index.html' }],
-	// optimize: {
-	//   "bundle": true,
-	// },
+	// optimize: { "bundle": true }
 }
