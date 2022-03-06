@@ -1,11 +1,12 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import HomePage from './pages/Home/HomePage'
-import SignupPage from './pages/Signup/SignupPage'
-import LoginPage from './pages/Login/LoginPage'
+import SignupPage from './pages/SignupPage'
+import LoginPage from './pages/LoginPage'
 import CategoriesPage from './pages/Categories/CategoriesPage'
 import RecipesPage from './pages/Recipes/RecipesPage'
 import { ChakraProvider } from '@chakra-ui/react'
+import './App.scss'
 
 const App = () => {
 	return (

@@ -1,43 +1,24 @@
-import React, { useState } from 'react'
+import React, { FC, useState } from 'react'
 import LoggedInNavbar from '../../global/LoggedInNavbar'
-import WithSubnavigation from './components/Navbar'
-import { Container, Heading } from '@chakra-ui/react'
-import './HomePage.scss'
+import NavBar from './components/Navbar'
+import MainContent from './components/MainContent'
+import { Button, useColorMode, Center } from '@chakra-ui/react'
+import { SunIcon, MoonIcon } from '@chakra-ui/icons'
 
-const HomePage = () => {
+const HomePage: FC = () => {
 	const [loggedIn, setLoggedIn] = useState(false)
+	const { colorMode, toggleColorMode } = useColorMode()
 	return (
 		<div>
-			<Container
-				className="title-container"
-				width={'min-content'}
-				pos={'absolute'}
-				background={'blue'}
-			>
-				<Heading
-					className="title"
-					fontSize={{ sm: '6xl', md: '6xl', lg: '6xl', base: '4xl' }}
-					fontStyle={'italic'}
-					textShadow={'0 5px 5px gray'}
-					fontFamily={'Volitaire'}
-					whiteSpace={'nowrap'}
-					pos={'absolute'}
-					top={72}
-					left={0}
-					transform={{
-						base: 'translate(25%)',
-						md: 'translate(100%)',
-						sm: 'translate(50%)',
-						lg: 'translate(200%)',
-					}}
-				>
-					My Cookbook
-				</Heading>
-			</Container>
-			{loggedIn ? <LoggedInNavbar /> : <WithSubnavigation />}
-			<br />
-			<button onClick={() => setLoggedIn(!loggedIn)}>Show</button>
-			{/* <Logo /> */}
+			<Center w={'100%'} pos={'absolute'} top={2}>
+				<Button onClick={toggleColorMode} variant={'ghost'}>
+					{colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
+				</Button>
+			</Center>
+			{loggedIn ? <LoggedInNavbar /> : <NavBar />}
+			<Center pos={'absolute'} w={'100%'} h={'50%'}>
+				<MainContent />
+			</Center>
 		</div>
 	)
 }

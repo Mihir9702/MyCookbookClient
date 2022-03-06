@@ -1,6 +1,6 @@
 {
 	"name": "my-cookbook-client",
-	"version": "0.0.2",
+	"version": "0.0.5",
 	"scripts": {
 		"start": "snowpack dev",
 		"build": "snowpack build",

@@ -28,7 +28,6 @@ import panda from 'src/global/panda.png'
 import { FaBookOpen } from 'react-icons/fa'
 
 const LoggedInNavbar = () => {
-	const { colorMode, toggleColorMode } = useColorMode()
 	const colorModeValue = useColorModeValue('gray.100', 'gray.700')
 	return (
 		<>
@@ -40,10 +39,6 @@ const LoggedInNavbar = () => {
 
 					<Flex alignItems={'center'}>
 						<Stack direction={'row'} spacing={7}>
-							<Button onClick={toggleColorMode}>
-								{colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
-							</Button>
-
 							<Menu>
 								<MenuButton rounded={'full'} cursor={'pointer'}>
 									<Avatar size={'sm'} src={panda} />
