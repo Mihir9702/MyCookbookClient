@@ -2,15 +2,18 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
 import { BrowserRouter as Router } from 'react-router-dom'
+import { ChakraProvider as Chakra } from '@chakra-ui/react'
 import './index.css'
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <App />
+      <Chakra>
+        <App />
+      </Chakra>
     </Router>
   </React.StrictMode>,
-  document.getElementById('root'),
+  document.getElementById('root')
 )
 
 // Hot Module Replacement (HMR) - Remove this snippet to remove HMR.

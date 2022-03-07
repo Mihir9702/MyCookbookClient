@@ -1,26 +1,24 @@
-import React, { FC, useState } from 'react'
-import LoggedInNavbar from '../../global/LoggedInNavbar'
-import NavBar from './components/Navbar'
+import React, { FC } from 'react'
 import MainContent from './components/MainContent'
-import { Button, useColorMode, Center } from '@chakra-ui/react'
-import { SunIcon, MoonIcon } from '@chakra-ui/icons'
+import { Center, Image, Box, Stack } from '@chakra-ui/react'
+import waves from 'public/waves.svg'
 
 const HomePage: FC = () => {
-	const [loggedIn, setLoggedIn] = useState(false)
-	const { colorMode, toggleColorMode } = useColorMode()
-	return (
-		<div>
-			<Center w={'100%'} pos={'absolute'} top={2}>
-				<Button onClick={toggleColorMode} variant={'ghost'}>
-					{colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
-				</Button>
-			</Center>
-			{loggedIn ? <LoggedInNavbar /> : <NavBar />}
-			<Center pos={'absolute'} w={'100%'} h={'50%'}>
-				<MainContent />
-			</Center>
-		</div>
-	)
+  return (
+    <>
+      <Center pos={'relative'} w={'100%'} h={'100%'}>
+        <MainContent />
+      </Center>
+      <Box
+        pos={'absolute'}
+        bottom={0}
+        pointerEvents={'none'}
+        overflowY={'hidden'}
+      >
+        <Image src={waves} className={'wavesImage'} />
+      </Box>
+    </>
+  )
 }
 
 export default HomePage

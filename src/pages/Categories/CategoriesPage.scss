@@ -1,0 +1,48 @@
+// Heading
+.c-t {
+  display: flex;
+  justify-content: center;
+  margin: 2em;
+}
+
+.grid {
+  display: grid;
+  gap: 1em 2em;
+
+  .g-t {
+    font-family: 'Marck Script', cursive;
+    display: flex;
+    justify-content: center;
+    margin: 1em;
+  }
+
+  .col {
+    padding: 1em;
+    align-self: start;
+  }
+
+  .p {
+    text-align: center;
+    font-size: 1em;
+  }
+
+  .link {
+    margin: auto;
+    margin-top: 1em;
+    width: 100%;
+  }
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  @media (min-width: 960px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (min-width: 1200px) {
+    grid-template-columns: repeat(4, 1fr);
+    width: 80%;
+    transform: translate(10%);
+  }
+}

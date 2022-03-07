@@ -1,31 +1,71 @@
 $dark: #001122;
-$red: hsl(10, 70%, 50%);
-$blue: hsl(200, 70%, 50%);
-$purple: hsl(250, 60%, 50%);
 
 html {
-	width: 100%;
-	height: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
 }
 
 ::-webkit-scrollbar {
-	width: 0.5em;
+  width: 0.5em;
 }
 
 ::-webkit-scrollbar-track {
-	box-shadow: inset 0 0 5px lightslategray;
+  box-shadow: inset 0 0 5px lightslategray;
 }
 
 ::-webkit-scrollbar-thumb {
-	background: $dark;
-	border-radius: 10px;
+  background: $dark;
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-	background: #b30000;
+  background: lighten($dark, 20%);
+}
+
+.title:hover {
+  animation: titleWaves 500ms ease-in-out forwards;
+}
+
+@keyframes titleWaves {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.wavesImage {
+  width: 100vw;
+}
+
+@media (min-width: 1260px) {
+  .wavesImage {
+    animation: waves 8s ease-in-out alternate infinite;
+    width: 100vw;
+  }
+}
+
+@keyframes waves {
+  0% {
+    transform: translateY(5%);
+  }
+  50% {
+    transform: translateY(10%);
+  }
+  100% {
+    transform: translateY(5%);
+  }
 }
