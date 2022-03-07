@@ -1,7 +1,7 @@
 import React, { useState, useEffect, FC } from 'react'
 import axios from 'axios'
 import { Grid, Heading } from '@chakra-ui/react'
-import type { CategoryItem } from './interfaces'
+import type { CategoryItem } from '../../global/interfaces'
 import CategoriesCard from './components/CategoriesCard'
 import './CategoriesPage.scss'
 
@@ -16,7 +16,14 @@ const CategoriesPage: FC = () => {
 
   return (
     <>
-      <Heading className="cat-t">Categories</Heading>
+      <Heading
+        className="cat-t"
+        fontFamily={'Marck Script, cursive'}
+        fontSize={'6xl'}
+        textUnderlineOffset={'sm'}
+      >
+        Categories
+      </Heading>
       <Grid className="grid">
         {data.map(category => (
           <CategoriesCard key={category._id} path="/categories" {...category} />

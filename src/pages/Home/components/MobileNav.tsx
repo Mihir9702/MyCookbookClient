@@ -8,7 +8,7 @@ import {
   Stack,
   Text,
   useColorModeValue,
-  useDisclosure,
+  useDisclosure
 } from '@chakra-ui/react'
 import type { NavItem } from './NavItems'
 import NAV_ITEMS from './NavItems'
@@ -35,11 +35,11 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
       <Flex
         py={2}
         as={Link}
-        href={href ?? '#'}
+        href={href}
         justify={'space-between'}
         align={'center'}
         _hover={{
-          textDecoration: 'none',
+          textDecoration: 'none'
         }}
       >
         <Text

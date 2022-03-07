@@ -12,7 +12,8 @@ import {
   useColorModeValue,
   Spinner
 } from '@chakra-ui/react'
-import type { Category } from './interfaces'
+import type { Category } from '../../global/interfaces'
+import './components/Category.scss'
 
 const CategoryPage: FC = () => {
   const [data, setData] = useState<Category>()
@@ -30,9 +31,8 @@ const CategoryPage: FC = () => {
     <>
       {data && (
         <Flex flexDir={'column'} justify={'center'} align={'center'}>
-          <Heading className="c-t">{data.title}</Heading>
-          <Image src={data.image} />
-          <Grid>
+          <h2 className="cat-t">{data.title}</h2>
+          <Grid className="cat-grid">
             {data.recipes.length === 0 ? (
               <Spinner
                 thickness="4px"
@@ -45,19 +45,21 @@ const CategoryPage: FC = () => {
               data.recipes.map(recipe => (
                 <GridItem
                   key={recipe.idMeal}
-                  className="col"
+                  className="cat-col"
                   border={'1px solid'}
                   borderColor={useColorModeValue('pink.300', 'pink.500')}
-                  boxShadow={
-                    "5px 5px 5px 5px useColorModeValue('pink.300', 'pink.500')"
-                  }
+                  as={Link}
+                  href={`/recipes/${recipe.strMeal}`}
+                  // boxShadow={
+                  //   "5px 5px 5px 5px useColorModeValue('pink.300', 'pink.500')"
+                  // }
                 >
                   <Heading className="g-t">{recipe.strMeal}</Heading>
                   <Image src={recipe.strMealThumb} borderRadius={'10px'} />
                   <>
                     <Button
                       as={Link}
-                      className="link"
+                      className="cat-link"
                       href={`/recipes/${recipe.strMeal}`}
                       bg={useColorModeValue('pink.300', 'gray.700')}
                       boxShadow={'0 5px 5px 0 black'}

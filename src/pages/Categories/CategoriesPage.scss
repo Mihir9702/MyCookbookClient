@@ -2,11 +2,9 @@ $font: 'Marck Script', cursive;
 
 // Heading
 .cat-t {
-  font-family: $font;
   display: flex;
   justify-content: center;
   margin: 2em;
-  font-size: 3.5em;
   text-decoration: 2px underline;
   text-underline-offset: 4px;
 }
@@ -15,6 +13,8 @@ $font: 'Marck Script', cursive;
 .grid {
   display: grid;
   gap: 3em 3em;
+  width: 80%;
+  transform: translate(10%);
 
   .g-t {
     font-family: $font;
@@ -26,8 +26,6 @@ $font: 'Marck Script', cursive;
   img {
     pointer-events: none;
     user-select: none;
-    // width: 300px;
-    // height: 300px;
   }
 
   .col {
@@ -37,7 +35,7 @@ $font: 'Marck Script', cursive;
     transition: transform 300ms ease-in-out;
 
     &:hover {
-      transform: translateY(-5%);
+      transform: scale(1.1);
     }
   }
 
@@ -52,17 +50,16 @@ $font: 'Marck Script', cursive;
     width: 100%;
   }
 
-  @media (min-width: 768px) {
+  @media (max-width: 768px) {
     grid-template-columns: repeat(1, 1fr);
+    gap: 100px;
   }
 
-  @media (min-width: 960px) {
-    grid-template-columns: repeat(3, 1fr);
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   @media (min-width: 1200px) {
     grid-template-columns: repeat(4, 1fr);
-    width: 80%;
-    transform: translate(10%);
   }
 }

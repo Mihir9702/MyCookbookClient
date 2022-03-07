@@ -5,7 +5,7 @@ import {
   IconButton,
   Collapse,
   useColorModeValue,
-  useDisclosure,
+  useDisclosure
 } from '@chakra-ui/react'
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons'
 import DesktopNav from './DesktopNav'
@@ -40,8 +40,7 @@ const Navbar: FC = () => {
             onClick={onToggle}
             icon={
               isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />
-            }
-            variant={'ghost'}
+            } // variant={'ghost'}
             aria-label={'Toggle Navigation'}
             pos={'relative'}
             left={8}
@@ -58,10 +57,10 @@ const Navbar: FC = () => {
             <DesktopNav />
           </Center>
         </Flex>
+        <Collapse in={isOpen} animateOpacity>
+          <MobileNav />
+        </Collapse>
       </Flex>
-      <Collapse in={isOpen} animateOpacity>
-        <MobileNav />
-      </Collapse>
     </Box>
   )
 }

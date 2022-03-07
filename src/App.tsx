@@ -6,12 +6,12 @@ import LoginPage from './pages/LoginPage'
 import CategoriesPage from './pages/Categories/CategoriesPage'
 import CategoryPage from './pages/Categories/CategoryPage'
 import RecipesPage from './pages/Recipes/RecipesPage'
+import RecipePage from './pages/Recipes/RecipePage'
 import LoggedInNavbar from './global/LoggedInNavbar'
 import Navbar from './pages/Home/components/Navbar'
 import { Center, useColorMode, Button } from '@chakra-ui/react'
 import { MoonIcon, SunIcon } from '@chakra-ui/icons'
 import './App.scss'
-import './pages/Categories/CategoriesPage.scss'
 
 const App = () => {
   const [loggedIn, setLoggedIn] = useState(false)
@@ -35,7 +35,7 @@ const App = () => {
         <Route path="/categories/:category" element={<CategoryPage />} />
 
         <Route path="/recipes" element={<RecipesPage />} />
-        {/* <Route path="/recipes/:recipe" element={null} /> */}
+        <Route path="/recipes/:recipe" element={<RecipePage />} />
       </Routes>
     </div>
   )
