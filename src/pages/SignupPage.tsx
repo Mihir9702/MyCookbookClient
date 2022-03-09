@@ -12,6 +12,7 @@ import {
 } from '@chakra-ui/react'
 import FormInput from 'src/global/FormInput'
 import { post } from 'src/services/service'
+import { url } from 'src/services/url'
 
 const SignupPage: FC = () => {
   const [name, setName] = useState('')
@@ -20,16 +21,18 @@ const SignupPage: FC = () => {
 
   const navigate = useNavigate()
 
-  const reqBody = {
-    name: name,
-    username: username,
-    password: password
-  }
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    const reqBody = {
+      name: name,
+      username: username,
+      password: password
+    }
+
     e.preventDefault()
-    await post('/user/signup', reqBody)
-    navigate('/')
+    axios.post(`${url}/user/signup`, reqBody)?.then(() => {
+      navigate('/')
+      location.reload()
+    })
   }
 
   return (

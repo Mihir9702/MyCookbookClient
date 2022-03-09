@@ -1,4 +1,5 @@
 /** @type {import("snowpack").SnowpackUserConfig } */
+
 export default {
   mount: {
     public: { url: '/', static: true },
@@ -13,9 +14,5 @@ export default {
     src: './src',
     public: './public'
   },
-  routes: [{ match: 'routes', src: '.*', dest: '/index.html' }],
-  optimize: {
-    bundle: true,
-    minify: true
-  }
+  routes: [{ match: 'routes', src: '.*', dest: '/index.html' }]
 }

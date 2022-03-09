@@ -27,6 +27,7 @@ const LoggedInNavbar: FC = () => {
   const colorModeValue700 = useColorModeValue('gray.100', 'gray.700')
   const colorModeValue600 = useColorModeValue('gray.100', 'gray.600')
   const name = localStorage.getItem('name')
+  const username = localStorage.getItem('username')
   const { isOpen, onToggle } = useDisclosure()
 
   return (
@@ -110,7 +111,7 @@ const LoggedInNavbar: FC = () => {
                   </MenuItem>
                   <MenuItem justifyContent={'center'}>
                     <SettingsIcon pos={'relative'} mr={'auto'} />
-                    <Link pos={'absolute'} href="/settings">
+                    <Link pos={'absolute'} href={`/${username}/settings`}>
                       Settings
                     </Link>
                   </MenuItem>

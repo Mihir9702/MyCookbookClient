@@ -6,18 +6,8 @@ html {
   overflow-x: hidden;
 }
 
-.menu-links {
-  *a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    white-space: nowrap;
-  }
-  *a:hover {
-    text-decoration: none;
-    width: 100%;
-  }
+*a {
+  z-index: 5000;
 }
 
 *::-webkit-scrollbar {

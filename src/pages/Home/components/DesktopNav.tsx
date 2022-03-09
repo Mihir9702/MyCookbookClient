@@ -18,7 +18,7 @@ const DesktopNav: React.FC = () => {
   const popoverContentBgColor = useColorModeValue('white', 'gray.800')
 
   return (
-    <Stack className="nav" direction={'row'} spacing={4}>
+    <Stack zIndex={'2000 !important'} direction={'row'} spacing={4}>
       {NAV_ITEMS.map(navItem => (
         <Box key={navItem.label}>
           <Popover trigger={'hover'} placement={'bottom-start'}>
@@ -27,8 +27,7 @@ const DesktopNav: React.FC = () => {
                 p={2}
                 href={navItem.href && navItem.href}
                 fontSize={'sm'}
-                fontWeight={500}
-                zIndex={'150 !important'}
+                fontWeight={600}
                 color={linkColor}
                 border={navItem.label === 'Sign up' ? '1px' : 0}
                 borderColor={linkColor}
