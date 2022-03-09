@@ -1,23 +1,24 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import MySpinner from 'src/global/Spinner'
+import type { Recipe } from 'src/global/interfaces'
+import { url } from 'src/services/url'
 import {
   Flex,
   Grid,
-  GridItem,
   Link,
-  Spinner,
-  Heading,
   Image,
+  Heading,
+  GridItem,
   useColorModeValue
 } from '@chakra-ui/react'
-import type { Recipe } from '../../global/interfaces'
 
 const RecipesPage = () => {
   const [data, setData] = useState<Recipe[]>([])
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5002/api/recipes`)
+      .get(`${url}/recipes`)
       .then(res => setData(res.data))
       .catch(err => console.error(err))
   }, [])
@@ -28,13 +29,7 @@ const RecipesPage = () => {
         <h2 className="cat-t">Recipes</h2>
         <Grid className="cat-grid">
           {data.length === 0 ? (
-            <Spinner
-              thickness="4px"
-              speed="0.65s"
-              color="blue.500"
-              emptyColor={useColorModeValue('white', 'gray.700')}
-              size="xl"
-            />
+            <MySpinner />
           ) : (
             data.map(recipe => (
               <GridItem

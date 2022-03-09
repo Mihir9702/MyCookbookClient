@@ -1,72 +1,122 @@
-import React from 'react'
+import React, { FC } from 'react'
 import {
   Box,
   Flex,
-  Avatar,
   Link,
   Menu,
   Text,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  MenuDivider,
-  useColorModeValue,
   Stack,
   Center,
-  Icon,
+  Avatar,
+  Collapse,
+  MenuList,
+  MenuItem,
+  MenuButton,
+  MenuDivider,
+  useDisclosure,
+  useColorModeValue
 } from '@chakra-ui/react'
-import { ExternalLinkIcon, SettingsIcon } from '@chakra-ui/icons'
-import Logo from 'src/global/Logo'
-import panda from 'src/global/panda.png'
-import { FaBookOpen } from 'react-icons/fa'
+import {
+  ViewIcon,
+  SettingsIcon,
+  ChevronDownIcon,
+  ExternalLinkIcon
+} from '@chakra-ui/icons'
 
-const LoggedInNavbar = () => {
-  const colorModeValue = useColorModeValue('gray.100', 'gray.700')
+const LoggedInNavbar: FC = () => {
+  const colorModeValue700 = useColorModeValue('gray.100', 'gray.700')
+  const colorModeValue600 = useColorModeValue('gray.100', 'gray.600')
+  const name = localStorage.getItem('name')
+  const { isOpen, onToggle } = useDisclosure()
+
   return (
     <>
-      <Box bg={colorModeValue} px={4}>
+      <Box bg={colorModeValue700} px={4}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
-          <Box>
-            <Logo />
-          </Box>
-
           <Flex alignItems={'center'}>
-            <Stack direction={'row'} spacing={7}>
+            <Stack direction={'row'} spacing={8}>
               <Menu>
-                <MenuButton rounded={'full'} cursor={'pointer'}>
-                  <Avatar size={'sm'} src={panda} />
+                <MenuButton
+                  rounded={'full'}
+                  cursor={'pointer'}
+                  pos={'absolute'}
+                  right={0}
+                  top={0}
+                  transform={'translate(-50%, 50%)'}
+                >
+                  <Avatar size={'sm'} />
                 </MenuButton>
                 <MenuList
+                  className="menu-links"
                   alignItems={'center'}
                   border={'1px'}
                   borderColor={'blackAlpha.500'}
                 >
                   <br />
                   <Center>
-                    <Avatar size={'2xl'} src={panda} />
+                    <Avatar size={'2xl'} />
                   </Center>
                   <br />
                   <Center>
-                    <Text fontWeight={'medium'}>Username</Text>
+                    <Text fontWeight={'medium'}>{name}</Text>
                   </Center>
                   <br />
                   <MenuDivider borderColor={'gray.600'} />
-
+                  <Flex
+                    pos={'relative'}
+                    flexDir={'column'}
+                    justifyContent={'center'}
+                    align={'center'}
+                    onClick={onToggle}
+                  >
+                    <Center
+                      _hover={{
+                        bg: colorModeValue600,
+                        width: '100%'
+                      }}
+                    >
+                      <Text>View Catalog</Text>
+                    </Center>
+                    <ChevronDownIcon
+                      pos={'absolute'}
+                      left={2}
+                      top={0}
+                      fontSize={'2xl'}
+                    />
+                    <Collapse in={isOpen}>
+                      <Center
+                        my={2}
+                        _hover={{
+                          bg: colorModeValue600
+                        }}
+                      >
+                        <Link href="/categories">Categories</Link>
+                      </Center>
+                      <Center
+                        my={2}
+                        _hover={{
+                          bg: colorModeValue600
+                        }}
+                      >
+                        <Link href="/recipes">Recipes</Link>
+                      </Center>
+                    </Collapse>
+                  </Flex>
                   <MenuItem justifyContent={'center'}>
-                    <Icon as={FaBookOpen} pos={'relative'} mr={'auto'} />
-                    <Link href="#" pos={'absolute'}>
+                    <ViewIcon pos={'relative'} mr={'auto'} />
+                    <Link pos={'absolute'} href="/my-cookbooks">
                       My Cookbooks
                     </Link>
                   </MenuItem>
                   <MenuItem justifyContent={'center'}>
                     <SettingsIcon pos={'relative'} mr={'auto'} />
-                    <Link pos={'absolute'} href="#">
+                    <Link pos={'absolute'} href="/settings">
                       Settings
                     </Link>
                   </MenuItem>
                   <MenuItem justifyContent={'center'}>
                     <ExternalLinkIcon pos={'relative'} mr={'auto'} />
-                    <Link pos={'absolute'} href="#">
+                    <Link pos={'absolute'} href="/logout">
                       Logout
                     </Link>
                   </MenuItem>

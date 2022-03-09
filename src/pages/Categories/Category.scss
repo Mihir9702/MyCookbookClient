@@ -2,10 +2,10 @@ $font: 'Marck Script', cursive;
 
 // Heading
 .cat-t {
-  font-size: 4em;
-  font-family: $font;
-  text-decoration: 2px underline;
-  text-underline-offset: 4px;
+  font-size: 4em !important;
+  font-family: $font !important;
+  text-decoration: 2px underline !important;
+  text-underline-offset: 4px !important;
   user-select: none;
 }
 

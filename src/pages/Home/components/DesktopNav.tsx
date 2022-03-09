@@ -1,18 +1,18 @@
+import React from 'react'
 import {
-  useColorModeValue,
   Box,
-  Popover,
-  PopoverTrigger,
-  Link,
-  PopoverContent,
-  Stack,
   Text,
+  Link,
+  Stack,
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+  useColorModeValue
 } from '@chakra-ui/react'
-import React, { FC } from 'react'
 import NAV_ITEMS from './NavItems'
 import type { NavItem } from './NavItems'
 
-const DesktopNav: FC = () => {
+const DesktopNav: React.FC = () => {
   const linkColor = useColorModeValue('gray.600', 'gray.200')
   const linkHoverColor = 'pink.500'
   const popoverContentBgColor = useColorModeValue('white', 'gray.800')
@@ -28,14 +28,14 @@ const DesktopNav: FC = () => {
                 href={navItem.href && navItem.href}
                 fontSize={'sm'}
                 fontWeight={500}
+                zIndex={'150 !important'}
                 color={linkColor}
-                border={navItem.label === 'Sign up' ? '2px' : 0}
-                borderRadius={10}
+                border={navItem.label === 'Sign up' ? '1px' : 0}
                 borderColor={linkColor}
                 _hover={{
                   textDecoration: 'none',
                   color: linkHoverColor,
-                  borderColor: linkHoverColor,
+                  borderColor: linkHoverColor
                 }}
               >
                 {navItem.label}

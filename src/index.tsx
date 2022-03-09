@@ -3,15 +3,14 @@ import ReactDOM from 'react-dom'
 import App from './App'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { ChakraProvider as Chakra } from '@chakra-ui/react'
-import './index.css'
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <Chakra>
+    <Chakra>
+      <Router>
         <App />
-      </Chakra>
-    </Router>
+      </Router>
+    </Chakra>
   </React.StrictMode>,
   document.getElementById('root')
 )

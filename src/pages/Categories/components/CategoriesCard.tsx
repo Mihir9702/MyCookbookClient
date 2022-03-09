@@ -1,12 +1,12 @@
 import {
-  GridItem,
-  useColorModeValue,
-  Heading,
-  Button,
   Link,
-  Image,
   Text,
-  Center
+  Image,
+  Button,
+  Center,
+  Heading,
+  GridItem,
+  useColorModeValue
 } from '@chakra-ui/react'
 import React, { FC } from 'react'
 import type { Card } from '../../../global/interfaces'

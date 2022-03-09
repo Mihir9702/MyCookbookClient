@@ -1,25 +1,35 @@
 import React, { FC, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
 import {
-  Flex,
   Box,
-  FormControl,
-  FormLabel,
-  Input,
+  Flex,
+  Text,
   Stack,
   Button,
   Heading,
-  Text,
   useColorModeValue
 } from '@chakra-ui/react'
+import FormInput from 'src/global/FormInput'
+import { post } from 'src/services/service'
 
 const SignupPage: FC = () => {
   const [name, setName] = useState('')
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
-  // @ts-ignore
-  const handleSubmit = e => {
+  const navigate = useNavigate()
+
+  const reqBody = {
+    name: name,
+    username: username,
+    password: password
+  }
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    await post('/user/signup', reqBody)
+    navigate('/')
   }
 
   return (
@@ -27,50 +37,34 @@ const SignupPage: FC = () => {
       minH={'100vh'}
       align={'center'}
       justify={'center'}
-      bg={useColorModeValue('gray.50', 'gray.800')}
+      bg={useColorModeValue('gray.100', 'gray.800')}
     >
       <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
         <Stack align={'center'}>
-          <Heading fontSize={'4xl'}>Create an account</Heading>
-          <Text fontSize={'lg'} color={'gray.600'}>
-            After you sign up you can start making cookbooks!
+          <Heading fontSize={'5xl'}>Sign Up</Heading>
+          <Text fontSize={'lg'} color={'gray.600'} textAlign={'center'}>
+            Create an account to start making cookbooks!
           </Text>
         </Stack>
         <Box
           rounded={'lg'}
-          bg={useColorModeValue('white', 'gray.700')}
+          bg={useColorModeValue('gray.50', 'gray.700')}
           boxShadow={'lg'}
           p={8}
         >
-          <Stack spacing={4}>
-            <form onSubmit={handleSubmit}>
-              <FormControl>
-                <FormLabel htmlFor="name">Name</FormLabel>
-                <Input
-                  type="text"
-                  id="name"
-                  value={name}
-                  onChange={e => setName(e.target.value)}
-                />
-              </FormControl>
-              <FormControl>
-                <FormLabel htmlFor="username">Username</FormLabel>
-                <Input
-                  type="text"
-                  id="username"
-                  value={username}
-                  onChange={e => setUsername(e.target.value)}
-                />
-              </FormControl>
-              <FormControl>
-                <FormLabel htmlFor="password">Username</FormLabel>
-                <Input
-                  type="text"
-                  id="password"
-                  value={password}
-                  onChange={e => setPassword(e.target.value)}
-                />
-              </FormControl>
+          <form onSubmit={handleSubmit}>
+            <Stack spacing={4}>
+              <FormInput label="Name" value={name} setValue={setName} />
+              <FormInput
+                label="Username"
+                value={username}
+                setValue={setUsername}
+              />
+              <FormInput
+                label="Password"
+                value={password}
+                setValue={setPassword}
+              />
               <Stack spacing={10}>
                 <Stack
                   direction={{ base: 'column', sm: 'row' }}
@@ -78,18 +72,19 @@ const SignupPage: FC = () => {
                   justify={'space-between'}
                 ></Stack>
                 <Button
-                  bg={'blue.400'}
+                  bg={'pink.400'}
                   color={'white'}
+                  colorScheme={'pink'}
                   type="submit"
                   _hover={{
-                    bg: 'blue.500'
+                    bg: 'pink.500'
                   }}
                 >
                   Sign up
                 </Button>
               </Stack>
-            </form>
-          </Stack>
+            </Stack>
+          </form>
         </Box>
       </Stack>
     </Flex>

@@ -2,15 +2,16 @@ import React, { FC } from 'react'
 import {
   Box,
   Flex,
-  IconButton,
+  Center,
   Collapse,
-  useColorModeValue,
-  useDisclosure
+  IconButton,
+  useDisclosure,
+  useColorModeValue
 } from '@chakra-ui/react'
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons'
 import DesktopNav from './DesktopNav'
 import MobileNav from './MobileNav'
-import { Center } from '@chakra-ui/react'
+import Logo from './Logo'
 
 const Navbar: FC = () => {
   const { isOpen, onToggle } = useDisclosure()
@@ -40,20 +41,16 @@ const Navbar: FC = () => {
             onClick={onToggle}
             icon={
               isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />
-            } // variant={'ghost'}
+            }
+            variant={'ghost'}
             aria-label={'Toggle Navigation'}
-            pos={'relative'}
-            left={8}
+            pos={'absolute'}
+            right={'1vw'}
           />
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-          <Center
-            display={{ base: 'none', md: 'flex' }}
-            justifyContent={'center'}
-            alignItems={'center'}
-            position={'relative'}
-            w={'auto'}
-          >
+          <Logo />
+          <Center display={{ base: 'none', md: 'flex' }}>
             <DesktopNav />
           </Center>
         </Flex>

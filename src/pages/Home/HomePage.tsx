@@ -1,22 +1,18 @@
-import React, { FC } from 'react'
+import React from 'react'
 import MainContent from './components/MainContent'
-import { Center, Image, Box, Stack } from '@chakra-ui/react'
+import { Center, Image } from '@chakra-ui/react'
 import waves from 'public/waves.svg'
+import './HomePage.scss'
 
-const HomePage: FC = () => {
+const HomePage: React.FC = () => {
   return (
     <>
-      <Center pos={'relative'} w={'100%'} h={'100%'}>
+      <Center>
         <MainContent />
       </Center>
-      <Box
-        pos={'absolute'}
-        bottom={0}
-        pointerEvents={'none'}
-        overflowY={'hidden'}
-      >
-        <Image src={waves} className={'wavesImage'} />
-      </Box>
+      <Center className="waves-container">
+        <Image src={waves} />
+      </Center>
     </>
   )
 }

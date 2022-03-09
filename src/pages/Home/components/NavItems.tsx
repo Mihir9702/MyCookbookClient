@@ -12,23 +12,23 @@ const NAV_ITEMS: Array<NavItem> = [
       {
         label: 'Categories',
         subLabel: 'Navigate selections to fit your needs',
-        href: '/categories',
+        href: '/categories'
       },
       {
         label: 'Recipes',
         subLabel: 'Hundreds for recipes to choose from',
-        href: '/recipes',
-      },
-    ],
+        href: '/recipes'
+      }
+    ]
   },
   {
     label: 'Sign in',
-    href: '/login',
+    href: '/login'
   },
   {
     label: 'Sign up',
-    href: '/signup',
-  },
+    href: '/signup'
+  }
 ]
 
 export default NAV_ITEMS

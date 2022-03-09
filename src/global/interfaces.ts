@@ -31,3 +31,19 @@ export interface Recipe {
   ingredients?: [string, string][]
   instructions?: string[]
 }
+
+export interface User {
+  _id?: string
+  name?: string
+  username?: string
+  authToken?: string
+}
+
+export interface SetUser {
+  setUser: React.Dispatch<React.SetStateAction<User | undefined>>
+}
+
+export interface RecipeProduct {
+  ingredient?: string[]
+  text?: string
+}
