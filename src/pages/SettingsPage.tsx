@@ -15,6 +15,7 @@ const SettingsPage: React.FC = () => {
   const [password, setPassword] = useState('')
 
   const navigate = useNavigate()
+
   // Updating Information
   const handleUpdate = () => {
     if (current) {
@@ -24,9 +25,7 @@ const SettingsPage: React.FC = () => {
           username: username
         })
         .then(() => {
-          // @ts-ignore
           localStorage.setItem('name', name)
-          // @ts-ignore
           localStorage.setItem('username', username)
           navigate('/')
           location.reload()

@@ -40,61 +40,59 @@ const RecipeComponent: React.FC<Cart> = ({ id, cart, setCart }) => {
   }, [])
 
   return (
-    <>
-      <Container maxW={'7xl'}>
-        <SimpleGrid
-          columns={{ base: 1, lg: 2 }}
-          spacing={{ base: 8, md: 10 }}
-          py={{ base: 18, md: 24 }}
-        >
-          <Image
-            alt={`image of ${data?.title}`}
-            src={data?.image}
-            fit={'contain'}
-            w={'100%'}
-            h={{ base: '100%', sm: '400px', lg: '500px' }}
-          />
-          <Stack spacing={{ base: 6, md: 10 }}>
-            <Box as={'header'}>
-              <Heading
-                lineHeight={1.1}
-                fontWeight={600}
-                fontSize={{ base: '2xl', sm: '4xl', lg: '5xl' }}
-                textAlign={'center'}
-              >
-                {data?.title}
-              </Heading>
+    <Container maxW={'7xl'}>
+      <SimpleGrid
+        columns={{ base: 1, lg: 2 }}
+        spacing={{ base: 8, md: 10 }}
+        py={{ base: 18, md: 24 }}
+      >
+        <Image
+          alt={`image of ${data?.title}`}
+          src={data?.image}
+          fit={'contain'}
+          w={'100%'}
+          h={{ base: '100%', sm: '400px', lg: '500px' }}
+        />
+        <Stack spacing={{ base: 6, md: 10 }}>
+          <Box as={'header'}>
+            <Heading
+              lineHeight={1.1}
+              fontWeight={600}
+              fontSize={{ base: '2xl', sm: '4xl', lg: '5xl' }}
+              textAlign={'center'}
+            >
+              {data?.title}
+            </Heading>
+          </Box>
+
+          <Stack
+            spacing={{ base: 4, sm: 6 }}
+            direction={'column'}
+            divider={
+              <StackDivider
+                borderColor={useColorModeValue('gray.200', 'gray.600')}
+              />
+            }
+          >
+            <VStack />
+            <Box>
+              <Guide text="Instructions" />
+              <Text textAlign={'left'}>{data?.instructions}</Text>
             </Box>
 
-            <Stack
-              spacing={{ base: 4, sm: 6 }}
-              direction={'column'}
-              divider={
-                <StackDivider
-                  borderColor={useColorModeValue('gray.200', 'gray.600')}
-                />
-              }
-            >
-              <VStack />
-              <Box>
-                <Guide text="Instructions" />
-                <Text textAlign={'left'}>{data?.instructions}</Text>
-              </Box>
-
-              <Box>
-                <List spacing={2}>
-                  <Guide text="Ingredients" />
-                  {data?.ingredients?.map((ingredient, i) => (
-                    <Ingredient key={i} ingredient={ingredient} />
-                  ))}
-                </List>
-              </Box>
-            </Stack>
-            {id ? <AddButton handleCart={handleCart} /> : <SignUpButton />}
+            <Box>
+              <List spacing={2}>
+                <Guide text="Ingredients" />
+                {data?.ingredients?.map((ingredient, i) => (
+                  <Ingredient key={i} ingredient={ingredient} />
+                ))}
+              </List>
+            </Box>
           </Stack>
-        </SimpleGrid>
-      </Container>
-    </>
+          {id ? <AddButton handleCart={handleCart} /> : <SignUpButton />}
+        </Stack>
+      </SimpleGrid>
+    </Container>
   )
 }
 

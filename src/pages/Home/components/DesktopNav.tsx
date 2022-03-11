@@ -9,7 +9,7 @@ import {
   PopoverTrigger,
   useColorModeValue
 } from '@chakra-ui/react'
-import NAV_ITEMS from './NavItems'
+import NAVITEMS from './NavItems'
 import type { NavItem } from './NavItems'
 
 const DesktopNav: React.FC = () => {
@@ -19,7 +19,7 @@ const DesktopNav: React.FC = () => {
 
   return (
     <Stack zIndex={'2000 !important'} direction={'row'} spacing={4}>
-      {NAV_ITEMS.map(navItem => (
+      {NAVITEMS.map(navItem => (
         <Box key={navItem.label}>
           <Popover trigger={'hover'} placement={'bottom-start'}>
             <PopoverTrigger>

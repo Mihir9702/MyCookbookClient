@@ -10,10 +10,6 @@ const TitleLetter: FC<Props> = ({ letter }) => {
     <Heading
       pt={{ base: 0, md: 24, xl: 0, lg: 0 }}
       fontSize={{ base: '8xl', sm: '8xl', md: '8xl' }}
-      // whiteSpace={'nowrap'}
-      // lineHeight={'110%'}
-      // fontWeight={600}
-      // textShadow={'0 5px 5px'}
       fontFamily={'Marck Script, cursive'}
       className="title"
       color={useColorModeValue('gray.700', 'pink.400')}

@@ -30,30 +30,28 @@ const RecipesPage = () => {
   }, [])
 
   return (
-    <>
-      <Flex flexDir={'column'} justify={'center'} align={'center'}>
-        <h2 className="cat-t">Recipes</h2>
-        <Grid className="cat-grid">
-          {!data ? (
-            <MySpinner />
-          ) : (
-            data.map(recipe => (
-              <GridItem
-                key={recipe._id}
-                className="cat-col"
-                border={'1px solid'}
-                borderColor={useColorModeValue('pink.300', 'pink.500')}
-                as={Link}
-                href={`/recipes/${recipe.title}`}
-              >
-                <Heading className="g-t">{recipe.title}</Heading>
-                <Image src={recipe.image} borderRadius={'10px'} />
-              </GridItem>
-            ))
-          )}
-        </Grid>
-      </Flex>
-    </>
+    <Flex flexDir={'column'} justify={'center'} align={'center'}>
+      <h2 className="cat-t">Recipes</h2>
+      <Grid className="cat-grid">
+        {!data ? (
+          <MySpinner />
+        ) : (
+          data.map(recipe => (
+            <GridItem
+              key={recipe._id}
+              className="cat-col"
+              border={'1px solid'}
+              borderColor={useColorModeValue('pink.300', 'pink.500')}
+              as={Link}
+              href={`/recipes/${recipe.title}`}
+            >
+              <Heading className="g-t">{recipe.title}</Heading>
+              <Image src={recipe.image} borderRadius={'10px'} />
+            </GridItem>
+          ))
+        )}
+      </Grid>
+    </Flex>
   )
 }
 

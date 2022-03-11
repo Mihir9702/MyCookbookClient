@@ -5,7 +5,7 @@ export interface NavItem {
   href?: string
 }
 
-const NAV_ITEMS: Array<NavItem> = [
+const NAVITEMS: Array<NavItem> = [
   {
     label: `View Recipes`,
     children: [
@@ -31,4 +31,4 @@ const NAV_ITEMS: Array<NavItem> = [
   }
 ]
 
-export default NAV_ITEMS
+export default NAVITEMS

@@ -29,7 +29,6 @@ const SignupPage: FC = () => {
 
     e.preventDefault()
     axios.post(`${url}/user/signup`, reqBody)?.then(res => {
-      // console.log(res.data)
       localStorage.setItem('token', res.data.authToken)
       localStorage.setItem('id', res.data._id)
       localStorage.setItem('name', res.data.name)

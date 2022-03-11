@@ -11,7 +11,7 @@ import {
   useColorModeValue
 } from '@chakra-ui/react'
 import type { NavItem } from './NavItems'
-import NAV_ITEMS from './NavItems'
+import NAVITEMS from './NavItems'
 
 const MobileNav: FC = () => {
   return (
@@ -28,7 +28,7 @@ const MobileNav: FC = () => {
       pos={'relative'}
       display={{ md: 'none' }}
     >
-      {NAV_ITEMS.map(navItem => (
+      {NAVITEMS.map(navItem => (
         <MobileNavItem key={navItem.label} {...navItem} />
       ))}
     </Stack>

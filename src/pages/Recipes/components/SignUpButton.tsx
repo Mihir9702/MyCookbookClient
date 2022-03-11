@@ -10,13 +10,11 @@ const SignUpButton: React.FC = () => {
   }
 
   return (
-    <>
-      <Stack direction="row">
-        <Button colorScheme="teal" variant="outline" onClick={handleRedirect}>
-          Sign up to add this to cart
-        </Button>
-      </Stack>
-    </>
+    <Stack direction="row">
+      <Button colorScheme="teal" variant="outline" onClick={handleRedirect}>
+        Sign up to add this to cart
+      </Button>
+    </Stack>
   )
 }
 
