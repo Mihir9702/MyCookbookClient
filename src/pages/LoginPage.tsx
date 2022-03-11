@@ -2,7 +2,7 @@ import React, { FC, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { url } from 'src/services/url'
-import FormInput from 'src/global/FormInput'
+import FormInput from 'src/components/FormInput'
 import {
   Flex,
   Box,
@@ -29,6 +29,7 @@ const LoginPage: FC = () => {
       .post(`${url}/user/login`, reqBody)
       .then(res => {
         localStorage.setItem('token', res.data.authToken)
+        localStorage.setItem('id', res.data._id)
         localStorage.setItem('name', res.data.name)
         localStorage.setItem('username', res.data.username)
         navigate('/')

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Image, Link, Text, useBreakpointValue } from '@chakra-ui/react'
-import logo from 'public/logo.svg'
+import logo from 'src/assets/og-image.png'
 
 const Logo: React.FC = () => {
   return (
@@ -17,7 +17,7 @@ const Logo: React.FC = () => {
         alt="logo"
         left={1}
         top={1}
-        transform={'scale(0)'}
+        zIndex={100}
         w={'4em'}
         position={'absolute'}
       />

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import MySpinner from 'src/global/Spinner'
-import type { Recipe } from 'src/global/interfaces'
+import MySpinner from 'src/components/Spinner'
+import type { Recipe } from 'src/components/interfaces'
 import { url } from 'src/services/url'
 import {
   Flex,
@@ -14,13 +14,19 @@ import {
 } from '@chakra-ui/react'
 
 const RecipesPage = () => {
-  const [data, setData] = useState<Recipe[]>([])
+  const [data, setData] = useState<Recipe[]>()
+
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(`${url}/recipes`)
+      setData(response.data)
+    } catch (err) {
+      console.log(err)
+    }
+  }
 
   useEffect(() => {
-    axios
-      .get(`${url}/recipes`)
-      .then(res => setData(res.data))
-      .catch(err => console.error(err))
+    fetchData()
   }, [])
 
   return (
@@ -28,9 +34,10 @@ const RecipesPage = () => {
       <Flex flexDir={'column'} justify={'center'} align={'center'}>
         <h2 className="cat-t">Recipes</h2>
         <Grid className="cat-grid">
-          {data.length === 0 ? (
+          {!data ? (
             <MySpinner />
           ) : (
+            // @ts-ignore
             data.map(recipe => (
               <GridItem
                 key={recipe._id}

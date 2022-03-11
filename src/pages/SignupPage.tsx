@@ -10,7 +10,7 @@ import {
   Heading,
   useColorModeValue
 } from '@chakra-ui/react'
-import FormInput from 'src/global/FormInput'
+import FormInput from 'src/components/FormInput'
 import { post } from 'src/services/service'
 import { url } from 'src/services/url'
 

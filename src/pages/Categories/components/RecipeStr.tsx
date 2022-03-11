@@ -7,25 +7,20 @@ import {
   GridItem,
   useColorModeValue
 } from '@chakra-ui/react'
+import type { Recipe } from 'src/components/interfaces'
 
-interface Props {
-  idMeal: string
-  strMeal: string
-  strMealThumb: string
-}
-
-const RecipeStr: React.FC<Props> = ({ idMeal, strMeal, strMealThumb }) => {
+const RecipeStr: React.FC<Recipe> = ({ _id, image, title }) => {
   return (
-    <Box key={idMeal}>
+    <Box key={_id}>
       <GridItem
         className="cat-col"
         border={'1px solid'}
         borderColor={useColorModeValue('pink.300', 'pink.500')}
         as={Link}
-        href={`/recipes/${strMeal}`}
+        href={`/recipes/${title}`}
       >
-        <Heading className="g-t">{strMeal}</Heading>
-        <Image src={strMealThumb} borderRadius={'10px'} />
+        <Heading className="g-t">{title}</Heading>
+        <Image src={image} borderRadius={'10px'} />
       </GridItem>
     </Box>
   )

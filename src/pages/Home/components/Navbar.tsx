@@ -17,11 +17,11 @@ const Navbar: FC = () => {
   const { isOpen, onToggle } = useDisclosure()
 
   return (
-    <Box w={'100vw'}>
+    <Box>
       <Flex
-        bg={useColorModeValue('white', 'gray.900')}
+        bg={useColorModeValue('gray.50', 'gray.900')}
         color={useColorModeValue('gray.600', 'white')}
-        minH={'60px'}
+        minH={'4em'}
         py={{ base: 2 }}
         px={{ base: 4 }}
         borderBottom={1}

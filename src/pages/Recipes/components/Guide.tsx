@@ -1,6 +1,6 @@
 import { Text, useColorModeValue } from '@chakra-ui/react'
 import React from 'react'
-import type { RecipeProduct } from 'src/global/interfaces'
+import type { RecipeProduct } from 'src/components/interfaces'
 
 const Guide: React.FC<RecipeProduct> = ({ text }) => {
   return (

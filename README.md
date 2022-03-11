@@ -2,7 +2,7 @@
 
 <br />
 <div align="center">
-  <img src="public/og-image.png" alt="Logo" width="80" height="80">
+  <img src="./src/assets/og-image.png" alt="Logo" width="80" height="80">
   <h3 align="center">My Cookbook</h3>
 
   <p align="center">
@@ -50,7 +50,7 @@
 
 <!-- Todo: Need to add my own image of site -->
 <p align='center'>
-  <img src="public/og-image.png" alt="Logo" width="320" height="320">
+  <img src="./src/assets/og-image.png" alt="Logo" width="320" height="320">
 </p>
 
 Using `TheMealDB` I was able to build my own `REST API` to design an interactive web app for food enthusiasts

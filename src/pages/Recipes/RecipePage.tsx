@@ -1,26 +1,9 @@
-import React, { FC, useState, useEffect } from 'react'
-import axios from 'axios'
+import React, { FC } from 'react'
 import RecipeComponent from './components/RecipeComponent'
-import { url } from 'src/services/url'
-import type { Recipe } from 'src/global/interfaces'
-import { useParams } from 'react-router-dom'
+import type { Cart } from 'src/components/interfaces'
 
-const RecipePage: FC = () => {
-  const [data, setData] = useState<Recipe | undefined>()
-  const { recipe } = useParams()
-
-  useEffect(() => {
-    axios
-      .get(`${url}/recipes/${recipe}`)
-      .then(res => setData(res.data))
-      .catch(err => console.error(err))
-  }, [])
-
-  return (
-    <>
-      <RecipeComponent data={data} />
-    </>
-  )
+const RecipePage: FC<Cart> = ({ name, cart, setCart }) => {
+  return <RecipeComponent name={name} cart={cart} setCart={setCart} />
 }
 
 export default RecipePage

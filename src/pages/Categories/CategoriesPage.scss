@@ -31,7 +31,7 @@ $font: 'Marck Script', cursive;
   .col {
     padding: 1em;
     align-self: start;
-    box-shadow: 0 5px 20px 10px palevioletred;
+    box-shadow: 0 5px 20px 10px lighten(palevioletred, 15%);
     transition: transform 300ms ease-in-out;
 
     &:hover {

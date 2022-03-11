@@ -12,6 +12,7 @@ export default {
   ],
   alias: {
     src: './src',
+    comp: './src/components',
     public: './public'
   },
   routes: [{ match: 'routes', src: '.*', dest: '/index.html' }]

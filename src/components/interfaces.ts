@@ -25,11 +25,16 @@ export interface Category {
 
 export interface Recipe {
   _id: string
-  id?: string
+  id: string
   title: string
+  category?: string
   image: string
-  ingredients?: [string, string][]
-  instructions?: string[]
+  ingredients: [string, string][]
+  instructions: string[]
+}
+
+export interface Doc {
+  _doc: Recipe
 }
 
 export interface User {
@@ -46,4 +51,10 @@ export interface SetUser {
 export interface RecipeProduct {
   ingredient?: string[]
   text?: string
+}
+
+export interface Cart {
+  name?: string | null
+  cart: string[]
+  setCart: React.Dispatch<React.SetStateAction<string[]>>
 }

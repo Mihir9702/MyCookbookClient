@@ -22,10 +22,12 @@ import {
   ChevronDownIcon,
   ExternalLinkIcon
 } from '@chakra-ui/icons'
+import Logo from '../pages/Home/components/Logo'
+import cartIcon from 'src/assets/carticon.png'
 
 const LoggedInNavbar: FC = () => {
-  const colorModeValue700 = useColorModeValue('gray.100', 'gray.700')
-  const colorModeValue600 = useColorModeValue('gray.100', 'gray.600')
+  const colorModeValue700 = useColorModeValue('gray.50', 'gray.700')
+  const colorModeValue600 = useColorModeValue('gray.50', 'gray.600')
   const name = localStorage.getItem('name')
   const username = localStorage.getItem('username')
   const { isOpen, onToggle } = useDisclosure()
@@ -37,13 +39,35 @@ const LoggedInNavbar: FC = () => {
           <Flex alignItems={'center'}>
             <Stack direction={'row'} spacing={8}>
               <Menu>
+                <MenuItem justifyContent={'center'}>
+                  <Link
+                    pos={'absolute'}
+                    right={24}
+                    p={1}
+                    rounded={'3xl'}
+                    href={`/${username}/cart`}
+                    _hover={{
+                      bg: useColorModeValue('gray.200', 'gray.700')
+                    }}
+                  >
+                    <img
+                      src={cartIcon}
+                      alt="icon"
+                      style={{
+                        width: '2em',
+                        filter: useColorModeValue('invert(0)', 'invert(100%)')
+                      }}
+                    />
+                  </Link>
+                </MenuItem>
+                <Logo />
                 <MenuButton
                   rounded={'full'}
-                  cursor={'pointer'}
                   pos={'absolute'}
                   right={0}
                   top={0}
                   transform={'translate(-50%, 50%)'}
+                  zIndex={1}
                 >
                   <Avatar size={'sm'} />
                 </MenuButton>
@@ -105,7 +129,7 @@ const LoggedInNavbar: FC = () => {
                   </Flex>
                   <MenuItem justifyContent={'center'}>
                     <ViewIcon pos={'relative'} mr={'auto'} />
-                    <Link pos={'absolute'} href="/my-cookbooks">
+                    <Link pos={'absolute'} href={`/${username}/my-cookbooks`}>
                       My Cookbooks
                     </Link>
                   </MenuItem>

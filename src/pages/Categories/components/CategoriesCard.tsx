@@ -1,3 +1,4 @@
+import React, { FC } from 'react'
 import {
   Link,
   Text,
@@ -8,14 +9,14 @@ import {
   GridItem,
   useColorModeValue
 } from '@chakra-ui/react'
-import React, { FC } from 'react'
-import type { Card } from '../../../global/interfaces'
+import type { Card } from 'src/components/interfaces'
 
 const GridCardCategory: FC<Card> = ({ _id, title, image, description }) => {
   return (
     <GridItem
       className="col"
       as={Link}
+      rounded={'2xl'}
       href={`/categories/${title}`}
       _hover={{
         textDecor: 'none'

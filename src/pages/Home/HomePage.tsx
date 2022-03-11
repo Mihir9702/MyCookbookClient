@@ -1,7 +1,7 @@
 import React from 'react'
 import MainContent from './components/MainContent'
 import { Center, Image } from '@chakra-ui/react'
-import waves from 'public/waves.svg'
+import waves from 'src/assets/waves.svg'
 import './HomePage.scss'
 
 const HomePage: React.FC = () => {

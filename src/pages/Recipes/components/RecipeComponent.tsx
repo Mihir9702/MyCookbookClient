@@ -1,14 +1,18 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 import Guide from './Guide'
 import Ingredient from './Ingredient'
 import AddButton from './AddButton'
-import type { Recipe } from 'src/global/interfaces'
+import { useParams } from 'react-router-dom'
+import { url } from 'src/services/url'
+import type { Cart, Recipe } from 'src/components/interfaces'
+import SignUpButton from './SignUpButton'
 import {
   Box,
   Text,
   List,
-  Image,
   Stack,
+  Image,
   VStack,
   Heading,
   Container,
@@ -17,11 +21,24 @@ import {
   useColorModeValue
 } from '@chakra-ui/react'
 
-interface Props {
-  data: Recipe | undefined
-}
+const RecipeComponent: React.FC<Cart> = ({ name, cart, setCart }) => {
+  const { recipe } = useParams()
+  const [data, setData] = useState<Recipe>()
 
-const RecipeComponent: React.FC<Props> = ({ data }) => {
+  const handleCart = () => {
+    if (recipe) {
+      setCart(cart.concat(recipe))
+      localStorage.setItem('cart', JSON.stringify(cart))
+    }
+  }
+
+  useEffect(() => {
+    axios
+      .get(`${url}/recipes/${recipe}`)
+      .then(res => setData(res.data))
+      .catch(err => console.error(err))
+  }, [])
+
   return (
     <>
       <Container maxW={'7xl'}>
@@ -31,7 +48,6 @@ const RecipeComponent: React.FC<Props> = ({ data }) => {
           py={{ base: 18, md: 24 }}
         >
           <Image
-            rounded={'md'}
             alt={`image of ${data?.title}`}
             src={data?.image}
             fit={'contain'}
@@ -74,7 +90,7 @@ const RecipeComponent: React.FC<Props> = ({ data }) => {
                 </List>
               </Box>
             </Stack>
-            <AddButton />
+            {name ? <AddButton handleCart={handleCart} /> : <SignUpButton />}
           </Stack>
         </SimpleGrid>
       </Container>

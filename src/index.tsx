@@ -15,7 +15,7 @@ ReactDOM.render(
   document.getElementById('root')
 )
 
-// Hot Module Replacement (HMR) - Remove this snippet to remove HMR.
+// Hot Module Replacement (HMR)
 if (import.meta.hot) {
   import.meta.hot.accept()
 }

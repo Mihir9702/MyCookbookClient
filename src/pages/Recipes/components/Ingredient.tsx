@@ -1,6 +1,6 @@
 import React from 'react'
 import { ListItem, Text } from '@chakra-ui/react'
-import type { RecipeProduct } from 'src/global/interfaces'
+import type { RecipeProduct } from 'src/components/interfaces'
 
 const Ingredient: React.FC<RecipeProduct> = ({ ingredient }) => {
   return (

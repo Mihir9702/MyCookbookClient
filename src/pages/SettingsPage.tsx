@@ -1,28 +1,22 @@
-import React, { useState, useEffect, FormEvent } from 'react'
-import FormInput from 'src/global/FormInput'
-import { get, post } from 'src/services/service'
-import { Box, Stack, Center, Button, useColorModeValue } from '@chakra-ui/react'
+import React, { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { url } from 'src/services/url'
-import { useNavigate } from 'react-router-dom'
-
-interface UserData {
-  _id: string
-  name: string
-  username: string
-  cookbooks: string[]
-}
+import FormInput from 'src/components/FormInput'
+import MyButton from 'src/components/MyButton'
+import { get } from 'src/services/service'
+import { Box, Stack, Center, useColorModeValue } from '@chakra-ui/react'
 
 const SettingsPage: React.FC = () => {
   const [name, setName] = useState(localStorage.getItem('name'))
   const [username, setUsername] = useState(localStorage.getItem('username'))
+  const [id, setId] = useState()
   const [current, setCurrent] = useState('')
   const [password, setPassword] = useState('')
 
   const navigate = useNavigate()
   // Updating Information
-  const handleUpdate = (e: FormEvent) => {
-    e.preventDefault()
+  const handleUpdate = () => {
     if (current) {
       axios
         .post(`${url}/${current}/update`, {
@@ -40,31 +34,26 @@ const SettingsPage: React.FC = () => {
     }
   }
 
-  const handleDelete = () => {
-    return []
+  const handleDelete = async () => {
+    if (current === username) {
+      await axios.post(`${url}/${id}/delete`)
+      localStorage.clear()
+      navigate('/')
+      location.reload()
+    }
   }
 
   // Retrieving Information
   const getUser = async () => {
     const response = await get(`/${username}`)
-    console.log(response?.data)
     setCurrent(response?.data.username)
+    setId(response?.data._id)
   }
 
   useEffect(() => {
     getUser()
   }, [])
 
-  // return (
-  //   <>
-  //     <form onSubmit={handleUpdate}>
-  //       <FormInput label="Name" value={name} setValue={setName} />
-  //       <FormInput label="Username" value={username} setValue={setUsername} />
-  //       <Button type="submit">Submit</Button>
-  //     </form>
-  //     <Button onClick={handleDelete}>Delete Account</Button>
-  //   </>
-  // )
   return (
     <Center
       pos={'absolute'}
@@ -76,39 +65,26 @@ const SettingsPage: React.FC = () => {
       boxSize={'md'}
       boxShadow={'2xl'}
     >
-      <form onSubmit={handleUpdate}>
-        <Box boxSize={'xs'}>
-          <Stack spacing={4}>
-            <FormInput label="Name" value={name} setValue={setName} />
-            <FormInput
-              label="Username"
-              value={username}
-              setValue={setUsername}
-            />
-            <FormInput
-              label="Password"
-              value={password}
-              setValue={setPassword}
-            />
-          </Stack>
-          <Button
-            type="submit"
-            w={'50%'}
-            transform={'translate(50%)'}
-            my={6}
-            bg={'transparent'}
-            border={'2px solid'}
-            borderColor={useColorModeValue('green.400', 'green.300')}
-            color={useColorModeValue('green.500', 'green.400')}
-            _hover={{
-              bg: useColorModeValue('green.500', 'green.400'),
-              color: 'white'
-            }}
-          >
+      <Box boxSize={'xs'}>
+        <Stack spacing={4}>
+          <FormInput label="Name" value={name} setValue={setName} />
+          <FormInput label="Username" value={username} setValue={setUsername} />
+          <FormInput label="Password" value={password} setValue={setPassword} />
+        </Stack>
+        <Stack
+          direction={'row'}
+          align={'center'}
+          spacing={6}
+          justify={'center'}
+        >
+          <MyButton color="red" onClick={handleDelete}>
+            Delete Account
+          </MyButton>
+          <MyButton color="green" onClick={handleUpdate}>
             Save Changes
-          </Button>
-        </Box>
-      </form>
+          </MyButton>
+        </Stack>
+      </Box>
     </Center>
   )
 }
