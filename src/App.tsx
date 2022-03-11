@@ -1,4 +1,5 @@
 import React from 'react'
+import Error from './pages/Error'
 import Navbar from './pages/Home/components/Navbar'
 import CartPage from './pages/Recipes/CartPage'
 import HomePage from './pages/Home/HomePage'
@@ -17,7 +18,6 @@ import { Route, Routes } from 'react-router-dom'
 import { MoonIcon, SunIcon } from '@chakra-ui/icons'
 import { Center, useColorMode, Button } from '@chakra-ui/react'
 import './App.scss'
-import ErrorPage from './ErrorPage'
 
 const App: React.FC = () => {
   const { colorMode, toggleColorMode } = useColorMode()
@@ -27,7 +27,7 @@ const App: React.FC = () => {
     JSON.parse(localStorage.getItem('cart')) || []
   )
 
-  const username = localStorage.getItem('username')
+  const id = localStorage.getItem('id')
 
   return (
     <>
@@ -37,7 +37,7 @@ const App: React.FC = () => {
         </Button>
       </Center>
 
-      {username ? <LoggedInNavbar /> : <Navbar />}
+      {id ? <LoggedInNavbar /> : <Navbar />}
 
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -52,7 +52,7 @@ const App: React.FC = () => {
         <Route path="/recipes" element={<RecipesPage />} />
         <Route
           path="/recipes/:recipe"
-          element={<RecipePage name={username} cart={cart} setCart={setCart} />}
+          element={<RecipePage id={id} cart={cart} setCart={setCart} />}
         />
 
         <Route
@@ -62,7 +62,7 @@ const App: React.FC = () => {
         <Route path="/:user/settings" element={<SettingsPage />} />
         <Route path="/:user/my-cookbooks" element={<MyCookbooksPage />} />
         <Route path="/:user/my-cookbooks/:id" element={<CookbookPage />} />
-        <Route path="*" element={<ErrorPage />} />
+        <Route path="*" element={<Error />} />
       </Routes>
     </>
   )

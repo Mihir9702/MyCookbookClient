@@ -18,7 +18,7 @@ const RecipesPage = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`${url}/recipes`)
+      const response = await axios.get(`${url}/catalog/recipes`)
       setData(response.data)
     } catch (err) {
       console.log(err)
@@ -37,7 +37,6 @@ const RecipesPage = () => {
           {!data ? (
             <MySpinner />
           ) : (
-            // @ts-ignore
             data.map(recipe => (
               <GridItem
                 key={recipe._id}

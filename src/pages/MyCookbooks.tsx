@@ -27,22 +27,27 @@ const MyCookbooks: React.FC<Props> = ({ cb, i }) => {
   return (
     <Stack>
       <Button
-        boxSize={'xs'}
+        boxSize="xs"
         spacing={8}
         border={borderSize}
         borderColor={useColorModeValue('blue.500', 'teal.400')}
-        rounded={'3xl'}
-        pos={'relative'}
+        rounded="3xl"
+        pos="relative"
         as={Link}
         href={`/${user}/my-cookbooks/${cb._id}`}
         colorScheme={textColor}
-        variant={'outline'}
+        variant="outline"
+        boxShadow="dark-lg"
         m={8}
         p={8}
-        justify={'flex-start'}
-        align={'center'}
+        justify="flex-start"
+        align="center"
+        _hover={{
+          textDecoration: 'none',
+          bg: useColorModeValue('blue.50', 'teal.900')
+        }}
       >
-        <Container className="container">
+        <Container>
           <Heading my={8}>Cookbook {i + 1}</Heading>
           <Text>Recipes: {cb.recipes.length}</Text>
         </Container>

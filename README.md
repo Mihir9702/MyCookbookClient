@@ -17,7 +17,7 @@
     ·
     <a href="#">Client</a>
     ·
-    <a href="#">Server</a>
+    <a href="https://github.com/Mihir9702/MyCookbookServer">Server</a>
 
   </p>
 </div>
@@ -39,7 +39,6 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contact">Contact</a></li>
   </ol>
 </details>
@@ -67,7 +66,7 @@ but I am glad to create technology that guides the creation of food.
 - [Express](https://expressjs.com/)
 - [Node](https://nodejs.org/en/)
 - [MongoDB](https://www.mongodb.com/)
-- [Sass](https://sass-lang.com/)
+- [Scss](https://sass-lang.com/)
 - [Chakra-UI](https://chakra-ui.com/)
 - [Snowpack](https://www.snowpack.dev/)
 
@@ -91,13 +90,13 @@ Fork the project to your local repo
 FrontEnd
 
 ```sh
-git clone {Link}
+git clone https://github.com/Mihir9702/MyCookbookClient.git
 ```
 
 <u>BackEnd</u>
 
 ```sh
-git clone {Link}
+git clone https://github.com/Mihir9702/MyCookbookServer.git
 ```
 
 <br />
@@ -127,23 +126,12 @@ nodemon
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-<!-- ROADMAP -->
-
-<!-- ## Roadmap
-
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-  - [ ] Nested Feature -->
-
-<!-- <p align="right">(<a href="#top">back to top</a>)</p> -->
-
 <!-- CONTACT -->
 
 ## Contact
 
-Mihir Patel - [GitHub](https://github.com/Mihir9702) - [Linkedin](https://www.linkedin.com/in/mihir-k-patel/) - mihirkp7@gmail.com
+Mihir Patel - [GitHub](https://github.com/Mihir9702) - [Linkedin](https://www.linkedin.com/in/mihir-k-patel/) - [Email](mihirkp7@gmail.com)
 
-Project Links: [Client](https://github.com/Mihir9702/MyCookbookClient) - [Server](https://github.com/Mihir9702/MyCookbookServer)
+Project Links: [FrontEnd](https://github.com/Mihir9702/MyCookbookClient) - [BackEnd](https://github.com/Mihir9702/MyCookbookServer)
 
 <p align="right">(<a href="#top">back to top</a>)</p>

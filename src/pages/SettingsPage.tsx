@@ -34,9 +34,10 @@ const SettingsPage: React.FC = () => {
     }
   }
 
-  const handleDelete = async () => {
-    if (current === username) {
-      await axios.post(`${url}/${id}/delete`)
+  const handleDelete = () => {
+    const localid = localStorage.getItem('id')
+    if (id === localid) {
+      axios.post(`${url}/user/${id}/delete`)
       localStorage.clear()
       navigate('/')
       location.reload()

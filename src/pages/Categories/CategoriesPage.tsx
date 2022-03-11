@@ -12,7 +12,7 @@ const CategoriesPage: React.FC = () => {
   const [data, setData] = useState<CategoryItem[]>([])
   useEffect(() => {
     axios
-      .get(`${url}/categories`)
+      .get(`${url}/catalog/categories`)
       .then(res => setData(res.data))
       .catch(err => console.error(err))
   }, [])

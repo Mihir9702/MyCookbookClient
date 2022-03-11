@@ -21,7 +21,7 @@ import {
   useColorModeValue
 } from '@chakra-ui/react'
 
-const RecipeComponent: React.FC<Cart> = ({ name, cart, setCart }) => {
+const RecipeComponent: React.FC<Cart> = ({ id, cart, setCart }) => {
   const { recipe } = useParams()
   const [data, setData] = useState<Recipe>()
 
@@ -34,7 +34,7 @@ const RecipeComponent: React.FC<Cart> = ({ name, cart, setCart }) => {
 
   useEffect(() => {
     axios
-      .get(`${url}/recipes/${recipe}`)
+      .get(`${url}/catalog/recipes/${recipe}`)
       .then(res => setData(res.data))
       .catch(err => console.error(err))
   }, [])
@@ -90,7 +90,7 @@ const RecipeComponent: React.FC<Cart> = ({ name, cart, setCart }) => {
                 </List>
               </Box>
             </Stack>
-            {name ? <AddButton handleCart={handleCart} /> : <SignUpButton />}
+            {id ? <AddButton handleCart={handleCart} /> : <SignUpButton />}
           </Stack>
         </SimpleGrid>
       </Container>

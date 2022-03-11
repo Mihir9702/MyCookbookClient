@@ -3,6 +3,7 @@ import Slider from 'react-slick'
 import {
   Box,
   Text,
+  Flex,
   Image,
   Stack,
   Heading,
@@ -65,6 +66,13 @@ const Cookbook: FC<Props> = ({ book }) => {
                 <Text fontSize={{ base: 'md', lg: 'md' }} color="GrayText">
                   {recipe.instructions}
                 </Text>
+                <Flex flexDirection={'column'}>
+                  {recipe.ingredients.map(ingredient => (
+                    <Text fontSize={{ base: 'md', lg: 'md' }} color="GrayText">
+                      {ingredient}
+                    </Text>
+                  ))}
+                </Flex>
               </Stack>
             </Container>
           </Box>

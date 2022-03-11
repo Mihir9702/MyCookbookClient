@@ -8,16 +8,13 @@ import { get } from 'src/services/service'
 import './Category.scss'
 
 const CategoryPage: React.FC = () => {
+  const [data, setData] = useState<any>([])
   const { category } = useParams()
-  const [data, setData] = useState<any>()
-
-  const fetchData = async () => {
-    const response = await get(`/categories/${category}`)
-    setData(response.data)
-  }
 
   useEffect(() => {
-    fetchData()
+    get(`/catalog/categories/${category}`).then(r => {
+      setData(r.data)
+    })
   }, [])
 
   return (
