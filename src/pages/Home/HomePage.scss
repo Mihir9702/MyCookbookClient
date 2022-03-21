@@ -20,9 +20,14 @@ body {
   }
 }
 
+.chakra-ui-dark {
+  .title {
+    text-shadow: 0 0.05em 0.5em;
+  }
+}
+
 .title {
   font-weight: bold;
-  text-shadow: 0 0.05em 0.1em;
 
   &:hover {
     animation: titleWaves 500ms ease-in-out forwards;

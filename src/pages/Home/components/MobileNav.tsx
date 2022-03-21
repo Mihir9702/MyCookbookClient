@@ -94,6 +94,7 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
                 px={2}
                 py={2}
                 w={'100%'}
+                cursor="pointer"
                 href={child.href}
                 borderRadius={'.5em'}
                 _hover={{

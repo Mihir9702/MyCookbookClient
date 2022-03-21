@@ -31,6 +31,7 @@ const DesktopNav: React.FC = () => {
                 color={linkColor}
                 border={navItem.label === 'Sign up' ? '1px' : 0}
                 borderColor={linkColor}
+                cursor="pointer"
                 _hover={{
                   textDecoration: 'none',
                   color: linkHoverColor,
@@ -72,6 +73,7 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
       display={'block'}
       p={2}
       rounded={'md'}
+      cursor="pointer"
       _hover={{ bg: useColorModeValue('pink.50', 'gray.900') }}
     >
       <Stack direction={'row'} align={'center'}>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { Stack, Button } from '@chakra-ui/react'
-import { AddIcon } from '@chakra-ui/icons'
+import { Stack, Button, Link } from '@chakra-ui/react'
+import { AddIcon, ArrowBackIcon, ArrowLeftIcon } from '@chakra-ui/icons'
 
 interface Props {
   handleCart: () => void
@@ -16,9 +16,17 @@ const AddButton: React.FC<Props> = ({ handleCart }) => {
 
   return (
     <Stack direction="row" spacing={4}>
-      <Button colorScheme="teal" variant="outline" onClick={removeButton}>
-        <AddIcon />
-      </Button>
+      {!a ? (
+        <Button colorScheme="teal" variant="solid" onClick={removeButton}>
+          <AddIcon />
+        </Button>
+      ) : (
+        <Button colorScheme="blue" variant="solid" onClick={removeButton}>
+          <Link href="/recipes">
+            <ArrowBackIcon />
+          </Link>
+        </Button>
+      )}
     </Stack>
   )
 }

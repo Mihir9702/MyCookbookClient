@@ -46,6 +46,7 @@ const LoggedInNavbar: FC = () => {
                     p={1}
                     rounded={'3xl'}
                     href={`/${username}/cart`}
+                    cursor="pointer"
                     _hover={{
                       bg: useColorModeValue('gray.200', 'gray.700')
                     }}
@@ -115,7 +116,9 @@ const LoggedInNavbar: FC = () => {
                           bg: colorModeValue600
                         }}
                       >
-                        <Link href="/categories">Categories</Link>
+                        <Link cursor={'pointer'} href="/categories">
+                          Categories
+                        </Link>
                       </Center>
                       <Center
                         my={2}
@@ -123,25 +126,35 @@ const LoggedInNavbar: FC = () => {
                           bg: colorModeValue600
                         }}
                       >
-                        <Link href="/recipes">Recipes</Link>
+                        <Link cursor={'pointer'} href="/recipes">
+                          Recipes
+                        </Link>
                       </Center>
                     </Collapse>
                   </Flex>
                   <MenuItem justifyContent={'center'}>
                     <ViewIcon pos={'relative'} mr={'auto'} />
-                    <Link pos={'absolute'} href={`/${username}/my-cookbooks`}>
+                    <Link
+                      cursor={'pointer'}
+                      pos={'absolute'}
+                      href={`/${username}/my-cookbooks`}
+                    >
                       My Cookbooks
                     </Link>
                   </MenuItem>
                   <MenuItem justifyContent={'center'}>
                     <SettingsIcon pos={'relative'} mr={'auto'} />
-                    <Link pos={'absolute'} href={`/${username}/settings`}>
+                    <Link
+                      cursor={'pointer'}
+                      pos={'absolute'}
+                      href={`/${username}/settings`}
+                    >
                       Settings
                     </Link>
                   </MenuItem>
                   <MenuItem justifyContent={'center'}>
                     <ExternalLinkIcon pos={'relative'} mr={'auto'} />
-                    <Link pos={'absolute'} href="/logout">
+                    <Link cursor={'pointer'} pos={'absolute'} href="/logout">
                       Logout
                     </Link>
                   </MenuItem>

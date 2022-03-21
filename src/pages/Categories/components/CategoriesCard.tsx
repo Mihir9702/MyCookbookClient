@@ -7,7 +7,8 @@ import {
   Center,
   Heading,
   GridItem,
-  useColorModeValue
+  useColorModeValue,
+  Container
 } from '@chakra-ui/react'
 import type { Card } from 'src/components/interfaces'
 
@@ -16,6 +17,8 @@ const GridCardCategory: FC<Card> = ({ _id, title, image, description }) => {
     <GridItem
       className="col"
       as={Link}
+      width={'100%'}
+      height={'100%'}
       rounded={'2xl'}
       href={`/categories/${title}`}
       _hover={{
@@ -27,25 +30,6 @@ const GridCardCategory: FC<Card> = ({ _id, title, image, description }) => {
         <Image src={image} borderRadius={'10px'} />
       </Center>
       <Text className="p">{description}</Text>
-      <>
-        <Button
-          as={Link}
-          className="link"
-          cursor={'pointer'}
-          href={`/categories/${title}`}
-          bg={useColorModeValue('pink.300', 'gray.700')}
-          boxShadow={'0 5px 5px 0 black'}
-          _active={{
-            bg: useColorModeValue('pink.400', 'pink.500')
-          }}
-          _hover={{
-            textDecor: 'none',
-            bg: useColorModeValue('pink.400', 'pink.500')
-          }}
-        >
-          {title}
-        </Button>
-      </>
     </GridItem>
   )
 }

@@ -12,7 +12,7 @@ $font: 'Marck Script', cursive;
 // Grid
 .grid {
   display: grid;
-  gap: 3em 3em;
+  gap: 5em;
   width: 80%;
   transform: translate(10%);
 
@@ -41,7 +41,7 @@ $font: 'Marck Script', cursive;
 
   .p {
     text-align: center;
-    font-size: 1em;
+    font-size: clamp(1rem, 1.05rem, 1.1rem);
   }
 
   .link {
