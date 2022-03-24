@@ -13,7 +13,7 @@
     <br />
     <br />
     <!-- Todo: Need to update links -->
-    <a href="#">Visit Site</a>
+    <a href="https://makemybook.netlify.app/">Visit Site</a>
     ·
     <a href="#">Client</a>
     ·
